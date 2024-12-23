@@ -1,6 +1,16 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --black: #3b434e;
+  --gray-light: #ebebeb;
+  --white: white;
+  --primary: #7653fc;
+  --primary-hover: #6344df;
+  --red: #fc836d;
+  --green: #1dc37e;
+  --green-ligth: #c8f8e4;
+  --font-family: var(--font-noto-sans-kr), sans-serif;
+  --background: #f5f6f8;
+
+  /* --foreground: #171717; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,9 +27,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  font-family: var(--font-family);
+  color: var(--black);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
