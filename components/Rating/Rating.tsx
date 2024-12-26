@@ -1,3 +1,5 @@
+'use client';
+
 import { JSX, useEffect, useState, KeyboardEvent } from 'react';
 import { RatingProps } from './Rating.props';
 import styles from './Rating.module.css';
