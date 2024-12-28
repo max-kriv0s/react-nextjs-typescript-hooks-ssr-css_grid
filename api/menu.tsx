@@ -1,7 +1,8 @@
 import { API } from '@/app/api';
 import { MenuItem } from '@/interfaces/menu.interfaces';
+import { TopLevelCategory } from '@/interfaces/page.interface';
 
-export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
+export async function getMenu(firstCategory: number = TopLevelCategory.Courses): Promise<MenuItem[]> {
   const res = await fetch(API.topPage.find, {
     method: 'POST',
     body: JSON.stringify({ firstCategory }),
