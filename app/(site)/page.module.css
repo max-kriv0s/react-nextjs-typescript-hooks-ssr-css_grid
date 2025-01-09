@@ -10,7 +10,7 @@
     'footer footer footer footer';
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 230px minmax(320px, 1200px) auto;
-  gap: 0 30px;
+  gap: 40px 30px;
   min-height: 100vh;
 }
 
@@ -41,10 +41,14 @@
   }
 
   .sidebar {
-    display: none;
+    display: none !important;
   }
 
   .header {
     display: block;
+  }
+
+  .body {
+    padding: 15pxs;
   }
 }
