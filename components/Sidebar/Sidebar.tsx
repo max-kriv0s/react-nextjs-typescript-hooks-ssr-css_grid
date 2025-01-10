@@ -6,6 +6,7 @@ import { getMenu } from '@/api/menu';
 import Logo from '@/app/(site)/logo.svg';
 import cn from 'classnames';
 import styles from './Sidebar.module.css';
+import { Search } from '..';
 
 export const Sidebar = async ({ className, ...props }: SidebarProps): Promise<JSX.Element> => {
   const firstCategory = TopLevelCategory.Courses;
@@ -14,7 +15,7 @@ export const Sidebar = async ({ className, ...props }: SidebarProps): Promise<JS
   return (
     <div className={cn(className, styles.sidebar)} {...props}>
       <Logo className={styles.logo} />
-      <div>Поиск</div>
+      <Search />
       <Menu menu={menu} firstCategory={firstCategory} />
     </div>
   );
