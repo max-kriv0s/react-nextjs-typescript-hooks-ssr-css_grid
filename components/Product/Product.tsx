@@ -6,12 +6,13 @@ import { Card } from '../Card/Card';
 import Image from 'next/image';
 import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
+import { Button } from '../Button/Button';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   return (
-    <Card>
+    <Card className={styles.product}>
       <div className={styles.logo}>
-        <Image src={product.image} alt={product.title} width={30} height={30} />
+        <Image src={product.image} alt={product.title} width={70} height={70} />
       </div>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.price}>{product.price}</div>
@@ -26,9 +27,33 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
           </Tag>
         ))}
       </div>
-      <div className={styles.priceTitle}>цена</div>
-      <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
+      <div className={styles['price-title']}>цена</div>
+      <div className={styles['credit-title']}>кредит</div>
+      <div className={styles['rate-title']}>{product.reviewCount} отзывов</div>
+      <div className={styles.hr}>
+        <hr />
+      </div>
+      <div className={styles.description}>{product.description}</div>
+      <div className={styles.feature}>фичи</div>
+      <div className={styles['adv-block']}>
+        <div className={styles.advantages}>
+          <div>Преимущества</div>
+          <div>{product.advantages}</div>
+        </div>
+        <div className={styles.disadvantages}>
+          <div>Недостатки</div>
+          <div>{product.disadvantages}</div>
+        </div>
+      </div>
+      <div className={styles.hr}>
+        <hr />
+      </div>
+      <div className={styles.actions}>
+        <Button appearance='primary'>Узнать подробнее</Button>
+        <Button appearance='ghost' arrow='right'>
+          Читать отзывы
+        </Button>
+      </div>
     </Card>
   );
 };
