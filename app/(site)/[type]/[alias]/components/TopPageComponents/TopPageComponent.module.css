@@ -3,6 +3,7 @@
   grid-template-columns: auto 1fr auto;
   gap: 20px;
   place-items: baseline left;
+  margin-bottom: 30px;
 }
 
 .hh-title {
@@ -32,4 +33,10 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 27px;
+}
+
+@media (width <= 640px) {
+  .title {
+    grid-template-columns: auto 1fr;
+  }
 }
