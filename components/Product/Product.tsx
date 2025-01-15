@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX, useState } from 'react';
+import { JSX, useRef, useState } from 'react';
 import { ProductProps } from './Product.props';
 import styles from './Product.module.css';
 import cn from 'classnames';
@@ -12,12 +12,19 @@ import { Button } from '../Button/Button';
 import { declOfNum, priceRu } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import { Review } from '../Review/Review';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+  const reviewRef = useRef<HTMLDivElement>(null);
+
+  const scrollToReview = () => {
+    setIsReviewOpened(true);
+    reviewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <>
+    <div className={className} {...props}>
       <Card className={styles.product}>
         <div className={styles.logo}>
           <Image src={product.image} alt={product.title} width={70} height={70} />
@@ -47,7 +54,9 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
         <div className={styles['price-title']}>цена</div>
         <div className={styles['credit-title']}>кредит</div>
         <div className={styles['rate-title']}>
-          {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          <a href='#ref' onClick={scrollToReview}>
+            {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          </a>
         </div>
         <Divider className={styles.hr} />
         <div className={styles.description}>{product.description}</div>
@@ -93,14 +102,16 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
           [styles.opened]: isReviewOpened,
           [styles.closed]: !isReviewOpened,
         })}
+        ref={reviewRef}
       >
         {product.reviews.map((review) => (
-          <>
-            <Review key={review._id} review={review} />
+          <div key={review._id}>
+            <Review review={review} />
             <Divider />
-          </>
+          </div>
         ))}
+        <ReviewForm productId={product._id} />
       </Card>
-    </>
+    </div>
   );
 };

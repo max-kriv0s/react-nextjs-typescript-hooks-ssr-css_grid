@@ -148,6 +148,10 @@
   padding: 30px;
 }
 
+.rate-title a {
+  color: var(--primary);
+}
+
 @media (width <= 1320px) {
   .product {
     grid-template-areas:
