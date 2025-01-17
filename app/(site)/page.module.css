@@ -15,7 +15,6 @@
 }
 
 .header {
-  display: none;
   grid-area: header;
 }
 
@@ -38,14 +37,11 @@
       'body'
       'footer';
     grid-template-columns: minmax(320px, 1fr);
+    gap: 10px;
   }
 
   .sidebar {
     display: none !important;
-  }
-
-  .header {
-    display: block;
   }
 
   .body {

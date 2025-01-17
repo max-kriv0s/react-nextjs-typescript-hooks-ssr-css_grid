@@ -37,16 +37,18 @@
 }
 
 .second-level-block {
-  display: none;
+  overflow: hidden;
+
+  /* display: none; */
 }
 
-.second-level-block-opened {
+/* .second-level-block-opened {
   display: block;
 }
 
 .second-level-block-opened:last-child {
   margin-bottom: 20px;
-}
+} */
 
 .third-level {
   display: block;
