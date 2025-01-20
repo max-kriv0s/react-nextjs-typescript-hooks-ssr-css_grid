@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
 import styles from './page.module.css';
-import { Footer, HeaderServer, Sidebar, Up } from '@/components';
+import { Footer, HeaderServer, Sidebar, SkipLink, Up } from '@/components';
 
 const natoSans = Noto_Sans({
   variable: '--font-noto-sans-kr',
@@ -24,9 +24,12 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${natoSans.variable}`}>
         <div className={styles.wrapper}>
+          <SkipLink />
           <HeaderServer className={styles.header} />
           <Sidebar className={styles.sidebar} />
-          <div className={styles.body}>{children}</div>
+          <div className={styles.body} id='content' tabIndex={0}>
+            {children}
+          </div>
           <Footer className={styles.footer} />
           <Up />
         </div>

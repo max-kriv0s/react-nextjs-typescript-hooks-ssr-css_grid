@@ -30,13 +30,13 @@
 .grey {
   font-weight: bold;
   color: var(--white);
-  background: #b3c0d9;
+  background: #8a99b7;
 }
 
 .green {
   font-weight: bold;
   color: var(--green);
-  background: var(--green-ligth);
+  background: var(--green-light);
 }
 
 .primary {

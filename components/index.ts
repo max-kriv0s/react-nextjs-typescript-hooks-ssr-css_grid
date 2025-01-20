@@ -15,6 +15,7 @@ export * from './Divider/Divider';
 export * from './Review/Review';
 export * from './ReviewForm/ReviewForm';
 export * from './Up/Up';
+export * from './SkipLink/SkipLink';
 
 export * from './Header/Header';
 export * from './HeaderServer/HeaderServer';

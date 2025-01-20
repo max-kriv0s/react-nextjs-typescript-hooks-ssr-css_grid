@@ -31,6 +31,7 @@ export const Product = motion(
     const scrollToReview = () => {
       setIsReviewOpened(true);
       reviewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      reviewRef.current?.focus();
     };
 
     return (
@@ -112,7 +113,7 @@ export const Product = motion(
           initial='hidden'
           transition={{ duration: 0.7, ease: 'easeInOut' }}
         >
-          <Card color='blue' className={styles.reviews} ref={reviewRef}>
+          <Card color='blue' className={styles.reviews} ref={reviewRef} tabIndex={0}>
             {product.reviews.map((review) => (
               <div key={review._id}>
                 <Review review={review} />

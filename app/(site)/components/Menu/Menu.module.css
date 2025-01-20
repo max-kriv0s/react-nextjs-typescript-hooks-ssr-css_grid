@@ -23,7 +23,8 @@
   margin-bottom: 10px;
   font-size: 12px;
   font-weight: 300;
-  line-height: 16px;
+
+  /* line-height: 16px; */
   color: var(--gray-dark);
   text-transform: uppercase;
   cursor: pointer;
@@ -55,9 +56,11 @@
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
-  line-height: 19px;
+
+  /* line-height: 19px; */
   color: var(--gray-dark);
   cursor: pointer;
+  outline-offset: -1px;
 }
 
 .third-level-active,
