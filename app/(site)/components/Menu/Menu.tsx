@@ -128,5 +128,9 @@ export function Menu({ menu: inputMenu, firstCategory }: MenuProps): JSX.Element
     ));
   };
 
-  return <div className={styles.menu}>{buildFirstLevel()}</div>;
+  return (
+    <nav className={styles.menu} role='navigation'>
+      {buildFirstLevel()}
+    </nav>
+  );
 }
