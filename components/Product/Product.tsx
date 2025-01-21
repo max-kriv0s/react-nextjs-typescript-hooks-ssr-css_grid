@@ -42,17 +42,22 @@ export const Product = motion(
           </div>
           <div className={styles.title}>{product.title}</div>
           <div className={styles.price}>
-            {priceRu(product.price)}
+            <span>
+              <span className='visually-hidden'>цена</span> {priceRu(product.price)}
+            </span>
             {product.oldPrice && (
               <Tag className={styles['old-price']} color='green'>
+                <span className='visually-hidden'>скидка</span>
                 {priceRu(product.price - product.oldPrice)}
               </Tag>
             )}
           </div>
           <div className={styles.credit}>
+            <span className='visually-hidden'>кредит</span>
             {priceRu(product.credit)}/<span className={styles.month}>мес</span>
           </div>
           <div className={styles.rating}>
+            <span className='visually-hidden'>{'рейтинг' + (product.reviewAvg ?? product.initialRating)}</span>
             <Rating rating={product.reviewAvg ?? product.initialRating} />
           </div>
           <div className={styles.tags}>
@@ -62,8 +67,12 @@ export const Product = motion(
               </Tag>
             ))}
           </div>
-          <div className={styles['price-title']}>цена</div>
-          <div className={styles['credit-title']}>кредит</div>
+          <div className={styles['price-title']} aria-hidden={true}>
+            цена
+          </div>
+          <div className={styles['credit-title']} aria-hidden={true}>
+            кредит
+          </div>
           <div className={styles['rate-title']}>
             <a href='#ref' onClick={scrollToReview}>
               {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
@@ -113,14 +122,14 @@ export const Product = motion(
           initial='hidden'
           transition={{ duration: 0.7, ease: 'easeInOut' }}
         >
-          <Card color='blue' className={styles.reviews} ref={reviewRef} tabIndex={0}>
+          <Card color='blue' className={styles.reviews} ref={reviewRef} tabIndex={isReviewOpened ? 0 : -1}>
             {product.reviews.map((review) => (
               <div key={review._id}>
                 <Review review={review} />
                 <Divider />
               </div>
             ))}
-            <ReviewForm productId={product._id} />
+            <ReviewForm productId={product._id} isOpened={isReviewOpened} />
           </Card>
         </motion.div>
       </div>
