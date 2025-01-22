@@ -6,12 +6,14 @@ import cn from 'classnames';
 import styles from './Header.module.css';
 import Logo from '@/app/(site)/logo.svg';
 import { ButtonIcon } from '../ButtonIcon/ButtonIcon';
-import { motion, Variants } from 'framer-motion';
+import { motion, useReducedMotion, Variants } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 export const Header = ({ sidebar, className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const pathname = usePathname();
+
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpened(false);
@@ -19,7 +21,7 @@ export const Header = ({ sidebar, className, ...props }: HeaderProps): JSX.Eleme
 
   const variants: Variants = {
     opened: { opacity: 1, x: 0, transition: { stiffness: 20 } },
-    closed: { opacity: 0, x: '100%' },
+    closed: { opacity: shouldReduceMotion ? 1 : 0, x: '100%' },
   };
 
   return (

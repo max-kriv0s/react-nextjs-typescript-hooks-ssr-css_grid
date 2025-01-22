@@ -9,6 +9,11 @@
   line-height: 25px;
 }
 
+.first-level-list {
+  padding: 0;
+  list-style: none;
+}
+
 .first-level-activ,
 .first-level:hover {
   color: var(--primary);
@@ -20,6 +25,7 @@
 }
 
 .second-level {
+  padding: 0;
   margin-bottom: 10px;
   font-size: 12px;
   font-weight: 300;
@@ -28,17 +34,22 @@
   color: var(--gray-dark);
   text-transform: uppercase;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .second-block {
-  padding-left: 32px;
+  padding: 0 0 0 32px;
   margin-top: 15px;
   margin-left: 12px;
+  list-style: none;
   border-left: 1px solid #dfdfdf;
 }
 
 .second-level-block {
+  padding: 0;
   overflow: hidden;
+  list-style: none;
 
   /* display: none; */
 }
