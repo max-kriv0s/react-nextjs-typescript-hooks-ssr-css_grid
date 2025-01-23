@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "prepare": "husky",
+    "dev": "next dev -p 3011",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
@@ -32,6 +33,7 @@
     "eslint": "^9.16.0",
     "eslint-config-next": "15.1.0",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "husky": "^9.1.7",
     "stylelint": "^16.11.0",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-recommended": "^14.0.1",
