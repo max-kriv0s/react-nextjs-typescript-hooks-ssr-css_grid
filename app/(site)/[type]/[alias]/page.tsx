@@ -6,9 +6,28 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { TopPageComponent } from './components';
 
-export const metadata: Metadata = {
-  title: 'Курсы',
-};
+// export const metadata: Metadata = {
+//   title: 'Курсы',
+// };
+
+export async function generateMetadata({ params }: { params: Promise<{ alias: string }> }): Promise<Metadata> {
+  const { alias } = await params;
+  const page = await getPage(alias);
+
+  const fullUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/${alias}`;
+
+  return {
+    title: page?.metaTitle,
+    description: page?.metaDescription,
+    openGraph: {
+      title: page?.metaTitle,
+      description: page?.metaDescription,
+      url: fullUrl,
+      locale: 'ru_RU',
+      type: 'article',
+    },
+  };
+}
 
 export async function generateStaticParams() {
   let paths: { type: string; alias: string }[] = [];

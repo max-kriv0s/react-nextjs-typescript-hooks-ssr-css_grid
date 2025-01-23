@@ -3,6 +3,7 @@ import { Noto_Sans } from 'next/font/google';
 import './globals.css';
 import styles from './page.module.css';
 import { Footer, HeaderServer, Sidebar, SkipLink, Up } from '@/components';
+import RouterListener from '@/components/RouterListener/RouterListener';
 
 const natoSans = Noto_Sans({
   variable: '--font-noto-sans-kr',
@@ -22,7 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        {/* Подключение preconnect для Яндекс.Метрики */}
+        <link rel='preconnect' href='https://mc.yandex.ru' />
+        <link rel='dns-prefetch' href='https://mc.yandex.ru' />
+      </head>
       <body className={`${natoSans.variable}`}>
+        <RouterListener />
         <div className={styles.wrapper}>
           <SkipLink />
           <HeaderServer className={styles.header} />
