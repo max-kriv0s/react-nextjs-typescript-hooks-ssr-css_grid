@@ -5,9 +5,10 @@
   "scripts": {
     "prepare": "husky",
     "dev": "next dev -p 3011",
+    "export": "next export",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3011",
     "lint": "next lint",
     "stylelint": "stylelint \"**/*.{css,scss}\" --fix"
   },

@@ -29,6 +29,7 @@ export default function RootLayout({
         <link rel='dns-prefetch' href='https://mc.yandex.ru' />
       </head>
       <body className={`${natoSans.variable}`}>
+        {/* <ErrorButton label='Вызвать ошибку' /> */}
         <RouterListener />
         <div className={styles.wrapper}>
           <SkipLink />

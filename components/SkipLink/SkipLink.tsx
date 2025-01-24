@@ -24,7 +24,7 @@ export const SkipLink = (): JSX.Element => {
       onFocus={() => {
         setIsSkipLinkDisplayed(true);
       }}
-      tabIndex={1}
+      tabIndex={0}
       className={cn(styles['skip-link'], {
         [styles.displayed]: isSkipLinkDisplayed,
       })}

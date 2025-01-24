@@ -5,6 +5,7 @@ import { firstLevelMenu } from '@/helpers/helpers';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { TopPageComponent } from './components';
+import Error404 from '../../not-found';
 
 // export const metadata: Metadata = {
 //   title: 'Курсы',
@@ -61,7 +62,15 @@ export default async function TopPage({ params }: { params: Promise<{ alias: str
 
   const products = await getProducts(page.category);
 
-  return <TopPageComponent page={page} products={products} firstCategory={firstCategoryItem.id} />;
+  if (!page || !products) {
+    return <Error404 />;
+  }
+
+  return (
+    <>
+      <TopPageComponent page={page} products={products} firstCategory={firstCategoryItem.id} />
+    </>
+  );
   // (products && (
   //   <div>
   //     <div>{page.title}</div>

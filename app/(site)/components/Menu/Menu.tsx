@@ -67,6 +67,7 @@ export function Menu({ menu: inputMenu, firstCategory }: MenuProps): JSX.Element
     return (
       <ul className={styles['first-level-list']}>
         {firstLevelMenu.map((m) => (
+          // eslint-disable-next-line jsx-a11y/role-supports-aria-props
           <li key={m.route} aria-expanded={m.id === firstCategory}>
             <Link href={`/${m.route}`}>
               <div

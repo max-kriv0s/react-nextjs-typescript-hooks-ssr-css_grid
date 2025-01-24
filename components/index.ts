@@ -19,6 +19,8 @@ export * from './SkipLink/SkipLink';
 
 export * from './RouterListener/RouterListener';
 
+export * from './ErrorButton/ErrorButton';
+
 export * from './Header/Header';
 export * from './HeaderServer/HeaderServer';
 export * from './Sidebar/Sidebar';

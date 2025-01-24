@@ -15,6 +15,7 @@ export const Rating = forwardRef(function Rating(
 
   useEffect(() => {
     constructRating(rating);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rating, tabIndex]);
 
   const computeFocus = (r: number, i: number): number => {
@@ -44,7 +45,7 @@ export const Rating = forwardRef(function Rating(
           onClick={() => onClick(i + 1)}
           tabIndex={computeFocus(rating, i)}
           onKeyDown={handleKey}
-          ref={(r) => ratingArrayRef.current?.push(r)}
+          ref={(r) => void ratingArrayRef.current?.push(r)}
           role={isEditable ? 'slider' : ''}
           aria-invalid={error ? true : false}
           aria-valuenow={rating}
